@@ -1,0 +1,40 @@
+
+<div class="mb-3">
+    <label for="filterText" class="form-label">Ürün Ara
+    </label>
+    <input type="text" [(ngModel)]="filterText"  class="filterText" id="exampleFormControlInput1" placeholder="arama ifadesi girin">
+  </div>
+<div *ngIf="filterText.length>2" class="alert alert-primary">
+  {{filterText}} aradınız
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+        <th>Id</th>
+        <th>Marka Id</th>
+        <th>Renk Id</th>
+        <th>Açıklama</th>
+        <th>Model Yılı</th>
+        <th>Günlük fiyatı</th>
+        <th>KDV'li Günlük fiyatı</th>
+       
+  
+    </tr>
+</thead>
+<tbody>
+    <tr 
+    routerLink="/cars/detail/{{car.id}}"
+    *ngFor="let car of cars | filterPipe:filterText">
+        <td>{{car.id}} </td>
+        <td>{{car.brandId}} </td>
+        <td>{{car.colorId}} </td>
+        <td>{{car.description | uppercase}} </td>  
+        <td>{{car.modelYear}} </td>
+        <td>{{car.dailyPrice}} </td>   
+        <td>{{car.dailyPrice |vatAdded:10 | currency}} </td> 
+
+    </tr>
+</tbody>
+</table>
+<app-rental></app-rental>

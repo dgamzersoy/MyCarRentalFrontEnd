@@ -1,0 +1,77 @@
+<div class ="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="title">
+                 <label for="description"> Araba Ekle </label>  
+                </h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="carAddForm">
+                    <div class="mb-3">
+                  <div class="form-group">
+                      <input type="text" id="description"
+                      formControlName="description"
+                      class="form-control"
+                      placeholder="araba adı"
+                      />
+                  </div> 
+                </div>
+      
+            <div class="mb-3">
+                <label for="colorId"> Renk Numarası Girin </label>  
+                <div class="form-group">
+                    <input type="number" id="colorId"
+                    formControlName="colorId"
+                    class="form-control"
+                    placeholder="Renk Id"
+                    />
+                </div>  
+            </div>
+            <div class="mb-3">
+                <label for="brandId"> Marka Numarası Girin </label>  
+
+                <div class="form-group">
+                    <input type="number" id="brandId"
+                    formControlName="brandId"
+                    class="form-control"
+                    placeholder="Marka Id"
+                    />
+                </div> 
+            </div>
+            <div class="mb-3">
+                <label for="dailyPrice"> Fiyat Girin </label>  
+
+                <div class="form-group">
+                    <input type="number" id="dailyPrice"
+                    formControlName="dailyPrice"
+                    class="form-control"
+                    placeholder="Günlük Fiyat"
+                    />
+                </div> 
+            </div>
+            <div class="mb-3">
+                <label for="modelYear"> Model Yılı Girin </label>  
+
+                <div class="form-group">
+                    <input type="number" id="modelYear"
+                    formControlName="modelYear"
+                    class="form-control"
+                    placeholder="Model Yılı"
+                    />
+                </div>
+            </div>
+        </form>
+            </div>
+
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">
+                    Ekle
+                </button>
+            </div>
+        </div>
+    </div>
+ 
+
+
+</div>

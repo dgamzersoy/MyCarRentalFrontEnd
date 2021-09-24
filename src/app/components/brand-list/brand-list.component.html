@@ -1,0 +1,34 @@
+<table class="table ">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Brands</th>
+            <th></th>
+         
+
+         
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let brand of brands">
+            <td>{{brand.brandId}}</td>
+            <td>{{brand.brandName}}</td>
+            <td></td>
+
+
+            <td>
+                
+                <button class="btn btn-success" click="routerLink" routerLink="addBrand()">Marka Ekle</button>
+           </td>
+            <td>
+                
+                <button class="btn btn-primary" click="routerLink" routerLink="update/{{brand.brandId}}">Update</button>
+            </td>
+        
+           <td>
+                 <button class="btn btn-danger" click="routerLink" routerLink="deleteBrand/{{brand.brandId}}">Marka Sil</button>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

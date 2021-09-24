@@ -1,0 +1,26 @@
+
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ürün Ara
+  </label>
+  <input type="text" [(ngModel)]="filterText"  class="filterText" id="exampleFormControlInput1" placeholder="arama ifadesi girin">
+</div>
+<div *ngIf="filterText.length>2" class="alert alert-primary">
+{{filterText}} aradınız
+</div>
+
+<ul class="list-group">
+    <li [class]="getAllColorClass()"
+    (click)="setCurrentColor(color)"
+     routerLink="/cars">Tüm Renkler</li>
+    <li (click)="setCurrentColor(color)" 
+    routerLink="/cars/color/{{color.colorId}}"
+    *ngFor="let color of colors |  colorFilterPipe:filterText" 
+    [class]="getCurrentColorClass(color)" 
+    aria-current="true">{{color.colorName}}</li>
+ 
+  </ul>
+
+
+
+
+  <h5 *ngIf="currentColor">{{currentColor.colorName}} seçtiniz</h5>

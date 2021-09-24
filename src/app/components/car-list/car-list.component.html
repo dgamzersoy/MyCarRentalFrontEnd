@@ -1,0 +1,36 @@
+<table class="table table-striped">
+    <thead class="table-light">
+        <tr>         
+            <th scope="col">Marka Adı</th>   
+            <th scope="col">Araba İsmi</th>        
+            <th scope="col">Araba Rengi</th>
+            <th scope="col">Fiyatı</th>       
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let carDetailDto of carDetailDtos">
+           
+     
+            <td>{{carDetailDto.brandName}}</td>
+            <td>{{carDetailDto.carName}}</td>
+            <td>{{carDetailDto.colorName}}</td>
+            <td>{{carDetailDto.dailyPrice}}</td>
+          
+         
+          
+            <td>
+            
+              
+               
+                <button class="btn btn-danger"   click="routerLink" routerLink="update/{{carDetailDto.carId}}" >Güncelle</button>
+            
+            </td>
+
+            <td>
+                <button  class="btn btn-success" click="routerLink" routerLink="add()" >Araba Ekle</button>
+            </td>
+        
+        </tr>
+    </tbody>
+
+</table>
