@@ -5,10 +5,9 @@
             <th>Marka Adı</th>
             <th>Renk Adı</th>
             <th>Günlük Fiyat</th>
-            <th>Fotoğraf </th> 
+            
             <th> </th>
-            <th> </th>
-            <th></th>
+          
         </tr>
     </thead>
     <tbody>
@@ -26,18 +25,13 @@
             <td>{{carDetail?.colorName}} </td>
             <td>{{carDetail?.dailyPrice}} </td>
             <td *ngFor = "let car of carDetail.carImages"><img src="{{imageUrl}}{{car.imagePath}}"    class="card-img-top" alt="...">   
-                <button  type="button" class="btn btn-primary" routerLink="/cars/image/update/{{car.id}}">Resim Güncelle</button>
-                <button  type="button" class="btn btn-primary" (click)="delete(car.id)" >Resim Sil</button>
+               
             </td>
             <td><button (click)="rental()"
                 routerLink="/cars/rental/payment"
                 type="button" class="btn btn-primary">kirala</button>
             </td>  
-            <td>
-                <button  type="button" class="btn btn-primary"
-                routerLink="/cars/image/{{carDetail.carId}}"
-                >Resim Ekle</button>
-            </td>
+       
         
               
             

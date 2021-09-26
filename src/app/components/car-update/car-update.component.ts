@@ -4,8 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
 import { Car } from 'src/app/models/car';
+import { CarImage } from 'src/app/models/carImage';
 import { Color } from 'src/app/models/color';
+import { CarDetailDto } from 'src/app/models/Dto/carDetailDto';
 import { BrandService } from 'src/app/services/brand.service';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
 
@@ -20,11 +23,17 @@ export class CarUpdateComponent implements OnInit {
   brands:Brand[]=[]
   car:Car;
   id:number;
+  cars:Car[]=[];
+  carDetailDto:CarDetailDto[]=[];
+  singleCar:Car;
+  imageUrl: string = "https://localhost:44359";
+  singleCarImage:CarImage;
+  carImage:CarImage[]=[];
 
   constructor(private formBuilder:FormBuilder,private toastrService:ToastrService,
     private colorService:ColorService,private router:Router,
     private brandService:BrandService,private carService:CarService,
-    private activatedRoute:ActivatedRoute) { }
+    private activatedRoute:ActivatedRoute,private carImageService:CarImageService) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -67,7 +76,11 @@ createCarUpdateForm(){
       
     }
 
-
+    getByImageId(carId:number){
+      this.carImageService.getByCarId(carId).subscribe(response=>{
+          this.carImage=response.data
+        })
+    }
 
 getColor(){
   this.colorService.getColors().subscribe(response => {
@@ -93,4 +106,6 @@ getByCarId(id:number){
 backToList(){
   this.router.navigate(["cars/list"])
 }
+
+
 }

@@ -34,5 +34,10 @@ updateColor(color:Color):Observable<ResponseModel>{
   return this.httpClient.post<ResponseModel>(newPath,color)
 }
 
+deleteColor(color:Color):Observable<ResponseModel>{
+  let newPath = this.apiUrl+"colors/delete"
+  return this.httpClient.post<ResponseModel>(newPath,color)
+}
+
 
 }

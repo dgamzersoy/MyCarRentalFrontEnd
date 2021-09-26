@@ -5,8 +5,6 @@
             <th>Renk</th>
             <th></th>
          
-
-            <th><button  class="btn btn-success" click="routerLink" routerLink="add" >AddColor</button></th>
         </tr>
     </thead>
     <tbody>
@@ -14,13 +12,19 @@
             <td>{{color.colorId}}</td>
             <td>{{color.colorName}}</td>
             <td></td>
+          
             <td>
                 
-                <button class="btn btn-danger" click="routerLink" routerLink="update/{{color.colorId}}">Update</button>
+                <button class="btn btn-primary" click="routerLink" routerLink="add/{{color.colorId}}">Ekle</button>
             </td>
             <td>
                 
-                <button class="btn btn-danger" click="routerLink" routerLink="AddColor()">Renk Ekle</button>
+                <button class="btn btn-success" click="routerLink" routerLink="update/{{color.colorId}}">Güncelle</button>
+            </td>
+
+            <td>
+                
+                <button class="btn btn-danger" (click)="delete(color.colorId)">Sil</button>
             </td>
         </tr>
     </tbody>

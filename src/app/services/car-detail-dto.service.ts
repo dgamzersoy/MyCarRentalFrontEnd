@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { CarDetailDto } from '../models/Dto/carDetailDto';
 import { ItemResponseModel } from '../models/itemResponseModel';
 import { ListResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -23,4 +24,5 @@ export class CarDetailDtoService {
     let newPath = this.apiUrl + "getallbydetaildto?carId="+id;
     return this.httpClient.get<ListResponseModel<CarDetailDto>>(newPath)
   }
+
 }

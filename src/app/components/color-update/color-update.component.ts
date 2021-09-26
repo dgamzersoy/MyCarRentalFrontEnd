@@ -40,7 +40,7 @@ export class ColorUpdateComponent implements OnInit {
     })
   }
 
-  updateColor(){
+  update(){
       if(this.colorUpdateForm.valid){
         let colorModel = Object.assign({},this.colorUpdateForm.value)
   colorModel.colorId = this.color.colorId

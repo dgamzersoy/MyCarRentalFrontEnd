@@ -9,28 +9,29 @@
     </thead>
     <tbody>
         <tr  *ngFor="let carDetailDto of carDetailDtos">
-           
+          
      
             <td>{{carDetailDto.brandName}}</td>
             <td>{{carDetailDto.carName}}</td>
             <td>{{carDetailDto.colorName}}</td>
             <td>{{carDetailDto.dailyPrice}}</td>
-          
-         
-          
-            <td>
-            
-              
+                   
+            <td>         
                
-                <button class="btn btn-danger"   click="routerLink" routerLink="update/{{carDetailDto.carId}}" >Güncelle</button>
+                <button class="btn btn-primary"   click="routerLink" routerLink="update/{{carDetailDto.carId}}" >Güncelle</button>
             
             </td>
 
             <td>
-                <button  class="btn btn-success" click="routerLink" routerLink="add()" >Araba Ekle</button>
+                <button  class="btn btn-success" click="routerLink" routerLink="add/{{carDetailDto.carId}}" >Araba Ekle</button>
             </td>
         
+            <td>
+                <button  class="btn btn-danger" (click)="delete(carDetailDto.carId)">Araba Sil</button>
+            </td>
         </tr>
+
+     
     </tbody>
 
 </table>

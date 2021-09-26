@@ -1,17 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ItemResponseModel } from '../models/itemResponseModel';
 import { LoginModel } from '../models/loginModel';
+import { TokenModel } from '../models/tokenModel';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  apiUrl="https://localhost:44359/api/auth";
+  apiUrl="https://localhost:44359/api/auth/";
 
   constructor(private httpClient:HttpClient) { }
 
   login(loginModel:LoginModel){
-    return this.httpClient.post(this.apiUrl+"login",loginModel)
+    return this.httpClient.post<ItemResponseModel<TokenModel>>(this.apiUrl+"login",loginModel)
   }
 
   isAuthenticated(){

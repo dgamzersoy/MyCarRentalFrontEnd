@@ -1,0 +1,28 @@
+<table class="table ">
+    <thead>
+        <tr>
+            <th>Araba Adı</th>
+            <th>Fotoğraf</th>
+           <th></th> 
+           <th> </th>   
+           <th> </th>            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let carDetail of carDetailDto">
+            <td>{{carDetail?.carName}} </td>
+      
+            <td *ngFor = "let car of carDetail.carImages">
+            <img src="{{imageUrl}}{{car.imagePath}}"    class="card-img-top" alt="...">  
+            <button  type="button" class="btn btn-success" routerLink="/cars/image/update/{{car.carId}}">Resim Güncelle</button>
+            <button  type="button" class="btn btn-danger" (click)="delete(car.id)" >Resim Sil</button>     </td>
+            <td>
+            <button  type="button" class="btn btn-primary" click="routerLink"
+            routerLink="/cars/image/add/{{carDetail.carId}}"
+            >Resim Ekle</button></td>
+        </tr>
+            
+    </tbody>
+
+</table>
+

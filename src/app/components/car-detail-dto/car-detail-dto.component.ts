@@ -24,6 +24,7 @@ export class CarDetailDtoComponent implements OnInit {
   carDetailById:CarDetailDto;
   carImage: CarImage[]=[];
   singleCarImage:CarImage;
+  singleCar:Car;
   imageUrl: string = "https://localhost:44359";
   rent:boolean = false;
   paymen:boolean=false;
@@ -67,21 +68,17 @@ export class CarDetailDtoComponent implements OnInit {
     this.rent=true;
   }
 
-  delete(id:number){
-    
-    this.carImageService.getById(id).subscribe(response=>{
-      this.singleCarImage=response.data
-      this.carImageService.delete(this.singleCarImage).subscribe(response=>{
-        this.toastrService.success(response.message, "Başarılı");
-      }, responseError=>{
-        this.toastrService.error(responseError.message, "Dikkat");
-      })
-    })
-  }
+
+ 
+
+}
+
+
+  
 
   
  
-}
+
 
 
 

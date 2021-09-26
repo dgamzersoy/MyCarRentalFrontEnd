@@ -57,6 +57,10 @@ export class CarService {
         return this.httpClient.get<ListResponseModel<Car>>(newPath);
       }
 
+      delete(car:Car):Observable<ResponseModel>{
+        let newPath = this.apiUrl +"cars/delete"
+        return this.httpClient.post<ResponseModel>(newPath,car)
+      }
    
       
 

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ColorDeleteComponent } from './color-delete.component';
+import { CarImageListComponent } from './car-image-list.component';
 
-describe('ColorDeleteComponent', () => {
-  let component: ColorDeleteComponent;
-  let fixture: ComponentFixture<ColorDeleteComponent>;
+describe('CarImageListComponent', () => {
+  let component: CarImageListComponent;
+  let fixture: ComponentFixture<CarImageListComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ColorDeleteComponent ]
+      declarations: [ CarImageListComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ColorDeleteComponent);
+    fixture = TestBed.createComponent(CarImageListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

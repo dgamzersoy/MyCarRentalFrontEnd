@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule} from '@angular/forms'
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
 
@@ -37,10 +37,13 @@ import { ColorListComponent } from './components/color-list/color-list.component
 import { CarListComponent } from './components/car-list/car-list.component';
 import { BrandDeleteComponent } from './components/brand-delete/brand-delete.component';
 import { CarDeleteComponent } from './components/car-delete/car-delete.component';
-import { ColorDeleteComponent } from './components/color-delete/color-delete.component';
+
 import { CarImageAddComponent } from './components/car-image-add/car-image-add.component';
 import { CarImageUpdateComponent } from './components/car-image-update/car-image-update.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { CarImageListComponent } from './components/car-image-list/car-image-list.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -71,10 +74,12 @@ import { LoginComponent } from './components/login/login.component';
      CarListComponent,
      BrandDeleteComponent,
      CarDeleteComponent,
-     ColorDeleteComponent,
+  
      CarImageAddComponent,
      CarImageUpdateComponent,
      LoginComponent,
+     CarImageListComponent,
+     RegisterComponent,
 
   ],
   imports: [
@@ -90,7 +95,9 @@ import { LoginComponent } from './components/login/login.component';
 
     
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
